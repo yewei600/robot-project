@@ -1,0 +1,4 @@
+Android bluetooth custom code:
+http://www.instructables.com/id/Control-RGB-lights-from-Android-with-Arduino-Bluet/?ALLSTEPS
+
+https://github.com/danasf/hm10-android-arduino

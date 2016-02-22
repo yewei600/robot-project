@@ -1,0 +1,45 @@
+
+#include "ultrasonic.h"
+#include "motor.h"
+#include <SoftwareSerial.h>
+
+#define FORWARD 0
+#define BACKWARD 1
+
+
+SoftwareSerial mySerial(0, 1); // RX, TX
+
+
+
+void setup() {
+  Serial.begin(9600);
+  us_sensor.SETUP();
+  mLeft.SETUP();
+  mRight.SETUP();
+  
+  //bluetooth stuff
+  pinMode(9,OUTPUT); 
+  digitalWrite(9,HIGH);
+  Serial.println("Enter AT commands:");
+  mySerial.begin(9600);
+  
+  
+}
+
+void loop() {  
+  if(us_sensor.measure()){
+      mLeft.spin(1);
+      mRight.spin(1);
+      Serial.println("spinning");
+  }
+   else{
+     mLeft.stopspin();
+     mRight.stopspin();
+   }
+  delay(100);
+  
+
+  }
+
+
+
